@@ -6,6 +6,8 @@
 
 Simple yet super flexible custom cursor plugin.
 
+![](demo.gif.gif)
+
 ## Usage
 
 Wrap the entire app or a widget with the `FancyCursor()`
