@@ -31,7 +31,7 @@ class FancyCursor extends StatefulWidget {
     this.trailOpacity,
     this.trailCustomCursor,
   }) : super(key: key) {
-    this.delay ??= const Duration(milliseconds: 300);
+    this.delay ??= const Duration();
     this.curve ??= Curves.elasticOut;
 
     this.trailDelay ??= this.delay + Duration(milliseconds: 300);
