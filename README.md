@@ -1,7 +1,8 @@
 # fancy_cursor
+[![pub package](https://img.shields.io/pub/v/fancy_cursor.svg)](https://pub.dartlang.org/packages/fancy_cursor)
+[![demo](https://img.shields.io/badge/demo-online-brightgreen)](https://oldchen.top/markdown_widget/#/)
 
 Custom cursor with plenty of options.
-
 
 ## Usage
 
