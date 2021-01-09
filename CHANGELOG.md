@@ -7,6 +7,6 @@
 
 * Added a lot of options
 
-## [0.0.3]
+## [0.1.0]
 
-* Changed defaults
+* Added documentation and screenshot
