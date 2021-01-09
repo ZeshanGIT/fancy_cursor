@@ -6,7 +6,7 @@
 
 Simple yet super flexible custom cursor plugin.
 
-![](demo.gif.gif)
+![](demo.gif)
 
 ## Usage
 
