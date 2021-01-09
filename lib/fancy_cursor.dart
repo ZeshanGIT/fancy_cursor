@@ -249,6 +249,7 @@ class FancyCursor extends StatefulWidget {
     this.trailCurve,
     this.trailOpacity,
     this.trailCustomCursor,
+    this.nativeCursor,
   }) : super(key: key) {
     this.delay ??= const Duration();
     this.curve ??= Curves.elasticOut;
