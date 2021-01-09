@@ -219,6 +219,21 @@ class FancyCursor extends StatefulWidget {
   /// ```
   double trailOpacity;
 
+  /// Native cursor on top of the fancy cursor
+  ///
+  /// *Optional*
+  ///
+  /// Defaults to `SystemMouseCursors.none`.
+  ///
+  /// *Example*
+  /// ```dart
+  /// FancyCursor(
+  ///   nativeCursor: SystemMouseCursors.cell,
+  ///   child: HomePage(),
+  /// )
+  /// ```
+  MouseCursor nativeCursor;
+
   FancyCursor({
     Key key,
     @required this.child,
@@ -274,7 +289,7 @@ class _FancyCursorState extends State<FancyCursor> {
   Widget build(BuildContext context) {
     return Material(
       child: MouseRegion(
-        cursor: SystemMouseCursors.none,
+        cursor: widget.nativeCursor ?? SystemMouseCursors.none,
         onHover: (phe) {
           setState(() => position = phe.position);
         },

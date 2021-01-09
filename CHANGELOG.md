@@ -10,3 +10,7 @@
 ## [0.1.0]
 
 * Added documentation and screenshot
+
+## [0.1.1]
+
+* Option to change native pointer
