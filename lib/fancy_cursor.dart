@@ -3,11 +3,12 @@ library fancy_cursor;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+// ignore: must_be_immutable
 class FancyCursor extends StatefulWidget {
   /// The child in which fancy cursor takes effect.
   /// All the other parameters are optional.
   ///
-  /// *Required*
+  /// **`Required`**
   ///
   /// *Example*
   /// ```dart
@@ -121,7 +122,8 @@ class FancyCursor extends StatefulWidget {
   /// ```
   Duration trailDelay;
 
-  /// Animation curve that the fancy cursor follows to reach actual cursor position
+  /// Animation curve that the fancy cursor
+  /// follows to reach actual cursor position
   ///
   /// *Optional*
   ///

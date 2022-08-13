@@ -4,9 +4,9 @@
 [![License](https://img.shields.io/badge/licence-MIT-green.svg)](https://github.com/ZeshanGIT/fancy_cursor/blob/master/LICENSE)
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ZeshanGIT/fancy_cursor.svg)](https://github.com/ZeshanGIT/fancy_cursor)
 
-Simple yet super flexible custom cursor plugin.
+Simple yet super flexible custom cursor package.
 
-![](demo.gif)
+![Demo](demo.gif)
 
 ## Usage
 
@@ -35,9 +35,10 @@ class MyApp extends StatelessWidget {
 ```
 
 ## Options
+
 | Option            | Type     | Default                             |
 | :---------------- | :------- | :---------------------------------- |
-| child             | Widget   | **required*                         |
+| child             | Widget   | ***required**                         |
 | trail             | boolean  | `true`                              |
 | color             | Color    | `Colors.black`                      |
 | size              | double   | `8`                                 |
@@ -50,5 +51,25 @@ class MyApp extends StatelessWidget {
 | trailOpacity      | Curve    | `Curves.elasticOut`                 |
 | trailCustomCursor | Widget   | `null`                              |
 
+## Contributing
 
-<a href="https://www.buymeacoffee.com/seshanks" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
+Contributions, Issues, and feature requests are welcome!
+Feel free to check [issues page](https://github.com/ZeshanGIT/fancy_cursor/issues).
+
+## Show your support
+
+Give one ⭐️ if this project helped you!
+
+<a href="https://www.buymeacoffee.com/seshanks" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174">
+</a>
+
+## License
+
+Copyright © 2021 [Seshan K S](https://github.com/ZeshanGIT).<br />
+This project is [MIT](https://github.com/ZeshanGIT/fancy_cursor/blob/master/LICENSE) licensed.
+
+
+***
+
+<p align="center"> Made with 💚, From Seshan. </p>
