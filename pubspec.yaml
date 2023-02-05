@@ -5,7 +5,7 @@ author: Seshan K S
 repository: https://github.com/ZeshanGIT/fancy_cursor
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.18.5 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:

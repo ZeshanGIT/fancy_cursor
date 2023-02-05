@@ -33,7 +33,7 @@ class FancyCursor extends StatefulWidget {
   ///   child: HomePage(),
   /// )
   /// ```
-  Color color;
+  Color? color;
 
   /// The color of the trail.
   ///
@@ -52,7 +52,7 @@ class FancyCursor extends StatefulWidget {
   ///   child: HomePage(),
   /// )
   /// ```
-  Color trailColor;
+  Color? trailColor;
 
   /// The size of the cursor.
   ///
@@ -69,7 +69,7 @@ class FancyCursor extends StatefulWidget {
   ///   child: HomePage(),
   /// )
   /// ```
-  double size;
+  double? size;
 
   /// The size of the cursor.
   ///
@@ -88,7 +88,7 @@ class FancyCursor extends StatefulWidget {
   ///   child: HomePage(),
   /// )
   /// ```
-  double trailSize;
+  double? trailSize;
 
   /// Delay between actual cursor and fancy cursor
   ///
@@ -103,7 +103,7 @@ class FancyCursor extends StatefulWidget {
   ///   child: HomePage(),
   /// )
   /// ```
-  Duration delay;
+  Duration? delay;
 
   /// Delay between actual cursor and cursor trail
   ///
@@ -120,7 +120,7 @@ class FancyCursor extends StatefulWidget {
   ///   child: HomePage(),
   /// )
   /// ```
-  Duration trailDelay;
+  Duration? trailDelay;
 
   /// Animation curve that the fancy cursor
   /// follows to reach actual cursor position
@@ -137,7 +137,7 @@ class FancyCursor extends StatefulWidget {
   ///   child: HomePage(),
   /// )
   /// ```
-  Curve curve;
+  Curve? curve;
 
   /// Animation curve that the trail follows to reach actual cursor position
   ///
@@ -153,7 +153,7 @@ class FancyCursor extends StatefulWidget {
   ///   child: HomePage(),
   /// )
   /// ```
-  Curve trailCurve;
+  Curve? trailCurve;
 
   /// Custom cursor widget to replace the default circle
   ///
@@ -168,7 +168,7 @@ class FancyCursor extends StatefulWidget {
   ///   child: HomePage(),
   /// )
   /// ```
-  Widget customCursor;
+  Widget? customCursor;
 
   /// Custom cursor widget to replace the default trail
   ///
@@ -187,7 +187,7 @@ class FancyCursor extends StatefulWidget {
   ///   child: HomePage(),
   /// )
   /// ```
-  Widget trailCustomCursor;
+  Widget? trailCustomCursor;
 
   /// Wheather trail is enabled.
   ///
@@ -202,7 +202,7 @@ class FancyCursor extends StatefulWidget {
   ///   child: HomePage(),
   /// )
   /// ```
-  bool trail;
+  bool? trail;
 
   /// Opacity of the custom trail.
   /// Works only with [customCursor].
@@ -219,7 +219,7 @@ class FancyCursor extends StatefulWidget {
   ///   child: HomePage(),
   /// )
   /// ```
-  double trailOpacity;
+  double? trailOpacity;
 
   /// Native cursor on top of the fancy cursor
   ///
@@ -234,11 +234,11 @@ class FancyCursor extends StatefulWidget {
   ///   child: HomePage(),
   /// )
   /// ```
-  MouseCursor nativeCursor;
+  MouseCursor? nativeCursor;
 
   FancyCursor({
-    Key key,
-    @required this.child,
+    Key? key,
+    required this.child,
     this.trail = true,
     this.color,
     this.size,
@@ -256,7 +256,8 @@ class FancyCursor extends StatefulWidget {
     this.delay ??= const Duration();
     this.curve ??= Curves.elasticOut;
 
-    this.trailDelay ??= this.delay + Duration(milliseconds: 300);
+    this.trailDelay ??=
+        this.delay ?? const Duration() + Duration(milliseconds: 300);
     this.trailCurve ??= this.curve;
 
     if (this.customCursor != null) {
@@ -275,8 +276,8 @@ class FancyCursor extends StatefulWidget {
       if (this.trailCustomCursor != null) {
         assert(this.trailColor == null && this.trailSize == null);
       } else {
-        this.trailColor ??= this.color.withOpacity(0.3);
-        this.trailSize ??= this.size * 1.5;
+        this.trailColor ??= this.color ?? Colors.black.withOpacity(0.3);
+        this.trailSize ??= this.size ?? 8 * 1.5;
       }
     }
   }
@@ -299,10 +300,11 @@ class _FancyCursorState extends State<FancyCursor> {
         child: Stack(
           children: [
             widget.child,
-            if (widget.trail)
+            if (widget.trail == true)
               AnimatedPositioned(
-                duration: widget.trailDelay,
-                curve: widget.trailCurve,
+                duration: widget.trailDelay ??
+                    const Duration() + Duration(milliseconds: 300),
+                curve: widget.trailCurve ?? Curves.elasticOut,
                 top: position.dy - ((widget.trailSize ?? 0) / 2),
                 left: position.dx - ((widget.trailSize ?? 0) / 2),
                 child: IgnorePointer(
@@ -310,8 +312,8 @@ class _FancyCursorState extends State<FancyCursor> {
                       Container(
                         decoration: BoxDecoration(
                           color: widget.trailColor,
-                          borderRadius:
-                              BorderRadius.circular(widget.trailSize / 2),
+                          borderRadius: BorderRadius.circular(
+                              (widget.trailSize ?? 8) / 2),
                         ),
                         height: widget.trailSize,
                         width: widget.trailSize,
@@ -319,8 +321,8 @@ class _FancyCursorState extends State<FancyCursor> {
                 ),
               ),
             AnimatedPositioned(
-              duration: widget.delay,
-              curve: widget.curve,
+              duration: widget.delay ?? const Duration(),
+              curve: widget.curve ?? Curves.elasticOut,
               top: position.dy - (widget.size ?? 0) / 2,
               left: position.dx - (widget.size ?? 0) / 2,
               child: IgnorePointer(
@@ -328,7 +330,8 @@ class _FancyCursorState extends State<FancyCursor> {
                     Container(
                       decoration: BoxDecoration(
                         color: widget.color,
-                        borderRadius: BorderRadius.circular(widget.size / 2),
+                        borderRadius:
+                            BorderRadius.circular((widget.size ?? 8 * 1.5) / 2),
                       ),
                       height: widget.size,
                       width: widget.size,
